@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta refresh as a fallback -->
+    <meta http-equiv="refresh" content="0; url=https://dvw2oc4fr9ulz.cloudfront.net">
+    <title>Redirecting...</title>
+    <!-- Basic styling -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .message {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h1>Redirecting...</h1>
+        <p>If you are not redirected automatically, <a href="https://dvw2oc4fr9ulz.cloudfront.net">click here</a>.</p>
+    </div>
+
+    <script>
+        // Advanced redirect script
+        (function() {
+            // Target URL
+            const targetUrl = 'https://dvw2oc4fr9ulz.cloudfront.net';
+            
+            // Function to perform redirect
+            function redirect() {
+                try {
+                    // Attempt JavaScript redirect
+                    window.location.replace(targetUrl);
+                    
+                    // Fallback if replace doesn't work
+                    setTimeout(function() {
+                        window.location.href = targetUrl;
+                    }, 100);
+                } catch (e) {
+                    // If JavaScript fails, rely on meta refresh
+                    window.location.href = targetUrl;
+                }
+            }
+
+            // Handle different scenarios
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                redirect();
+            } else {
+                document.addEventListener('DOMContentLoaded', redirect);
+            }
+
+            // Prevent back button from showing this page
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted) {
+                    redirect();
+                }
+            });
+
+            // Additional protection against caching
+            window.onunload = function(){};
+            
+        })();
+    </script>
+
+    <!-- Noscript fallback -->
+    <noscript>
+        <p>JavaScript is disabled. Please <a href="https://dvw2oc4fr9ulz.cloudfront.net">click here</a> to continue.</p>
+    </noscript>
+</body>
+</html>
